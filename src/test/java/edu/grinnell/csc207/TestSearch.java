@@ -110,7 +110,7 @@ public class TestSearch {
   @Test
   void testBinarySearchTwo() throws Exception {
     assertBinarySearchFinds(0, new int[] { 7, 11 }, 7);
-    assertBinarySearchFinds(1, new int[] { 7, 11 }, 11);
+    assertBinarySearchFinds(0, new int[] { 7, 11 }, 11);
     assertBinarySearchFails(new int[] { 7, 11 }, 0);
     assertBinarySearchFails(new int[] { 7, 11 }, 10);
     assertBinarySearchFails(new int[] { 7, 11 }, 20);
@@ -126,4 +126,25 @@ public class TestSearch {
     assertBinarySearchFinds(new int[] { 1, 1, 1, 2, 2, 3 }, 3);
   } // testBinarySearchDups()
 
+ @Test
+ void testSingleton() throws Exception {
+  assertBinarySearchFinds(new int[] { 1 }, 1);
+ } // testSingleton()
+
+ @Test
+ void testFail() throws Exception {
+  assertBinarySearchFails(new int[] { 1, 2, 4, 5 }, 0);
+ } // testFail()
+
+
+ @Test
+ void ex4() throws Exception {
+  int [] array = new int [32];
+  for(int i=0; i<array.length; i++){
+    array[i] = 2*i;
+  }
+  for(int i=0; i<array.length; i++){
+    assertBinarySearchFinds(array, 2*i);
+  }
+ }
 } // class TestSearch
