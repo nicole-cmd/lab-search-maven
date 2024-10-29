@@ -35,6 +35,31 @@ public class SearchExperiments {
                        "victor", "whiskey", "xray", "yankee", "zulu" };
     ArrayList<String> strings = new ArrayList<String>(Arrays.asList(tmp));
 
+    Predicate<String> lessThanFiveChars = new Predicate<String>() {
+      public boolean test(String str) {
+        if(str.length() < 5) {
+          return true;
+        } else {
+          return false;
+        }
+      } 
+    };
+
+    Predicate<String> containsU = new Predicate<String>() {
+      public boolean test(String str) {
+      for (int i= 0; i < str.length(); i++){
+        if(str.charAt(i) == 'u'){
+          return true;
+        }
+      }
+      return false;
+      } 
+    };
+
+    String ex1c = SearchUtils.search(strings,lessThanFiveChars);
+    String ex1j = SearchUtils.search(strings,containsU);
+    pen.println(ex1c);
+    pen.println(ex1j);
     pen.close();
   } // main(String[])
 } // class SearchUtils
