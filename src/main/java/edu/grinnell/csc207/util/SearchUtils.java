@@ -151,6 +151,6 @@ public class SearchUtils {
 
   //helper midpoint
   public static int midpoint(int lb, int ub) {
-    return (ub - lb) / 2;
+    return lb + (ub - lb) / 2;
   }
 } // class SearchUtils
